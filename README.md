@@ -31,12 +31,6 @@ cd non-transitive-dice-game
 Use the `dotnet run` command to start the game. Provide at least 3 dice configurations as command-line arguments.
 
 #### Example Commands:
-- **4 Identical Dice**:
-  ```bash
-  dotnet run -- 1,2,3,4,5,6 1,2,3,4,5,6 1,2,3,4,5,6 1,2,3,4,5,6
-  ```
-
-- **3 Dice**:
   ```bash
   dotnet run -- 2,2,4,4,9,9 1,1,6,6,8,8 3,3,5,5,7,7
   ```
@@ -61,7 +55,6 @@ Use the `dotnet run` command to start the game. Provide at least 3 dice configur
     ```bash
     dotnet run -- 2,2,4,four,9,9 6,8,1,1,8,6 7,5,3,7,5,3
     ```
-
 
 ## Acknowledgments
 - **Spectre.Console**: Used for rendering beautiful tables in the console.
