@@ -11,16 +11,56 @@ namespace NonTransitiveDiceGame
     {
         static void Main(string[] args)
         {
+            if (args.Length == 0)
+            {
+                Console.WriteLine("Error: No dice configurations provided.");
+                Console.WriteLine("Example: dotnet run -- 2,2,4,4,9,9 6,8,1,1,8,6 7,5,3,7,5,3");
+                return;
+            }
+
             if (args.Length < 3)
             {
                 Console.WriteLine("Error: You must specify at least 3 dice configurations.");
-                Console.WriteLine("Example: game.exe 2,2,4,4,9,9 6,8,1,1,8,6 7,5,3,7,5,3");
+                Console.WriteLine("Example: dotnet run -- 2,2,4,4,9,9 6,8,1,1,8,6 7,5,3,7,5,3");
                 return;
             }
 
             try
             {
-                List<Dice> diceList = args.Select(arg => new Dice(arg)).ToList();
+                List<Dice> diceList = new List<Dice>();
+                foreach (var arg in args)
+                {
+                    try
+                    {
+                        diceList.Add(new Dice(arg));
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        Console.WriteLine($"Error in dice configuration '{arg}': {ex.Message}");
+                        return;
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine($"Error in dice configuration '{arg}': Non-integer value detected.");
+                        return;
+                    }
+                }
+
+                // Check for duplicate dice configurations
+                var duplicateDice = diceList.GroupBy(d => string.Join(",", d.Faces))
+                                            .Where(g => g.Count() > 1)
+                                            .Select(g => g.Key)
+                                            .ToList();
+                if (duplicateDice.Any())
+                {
+                    Console.WriteLine("Error: Duplicate dice configurations detected:");
+                    foreach (var dice in duplicateDice)
+                    {
+                        Console.WriteLine($"- {dice}");
+                    }
+                    return;
+                }
+
                 Game game = new Game(diceList);
                 game.Start();
             }
@@ -37,11 +77,38 @@ namespace NonTransitiveDiceGame
 
         public Dice(string input)
         {
-            Faces = input.Split(',').Select(int.Parse).ToArray();
+            // Check if the input is null or empty
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                throw new ArgumentException("Dice configuration cannot be null or empty.");
+            }
+
+            // Split the input by commas and parse into integers
+            string[] faceStrings = input.Split(',');
+            Faces = new int[faceStrings.Length];
+
+            for (int i = 0; i < faceStrings.Length; i++)
+            {
+                // Try to parse each face value
+                if (!int.TryParse(faceStrings[i], out int faceValue))
+                {
+                    throw new ArgumentException($"Invalid face value: '{faceStrings[i]}'. Dice faces must be integers.");
+                }
+
+                // Check if the face value is positive
+                if (faceValue <= 0)
+                {
+                    throw new ArgumentException($"Invalid face value: '{faceStrings[i]}'. Dice faces must be positive integers.");
+                }
+
+                Faces[i] = faceValue;
+            }
+
+            // Check the number of faces
             if (Faces.Length < 4 || Faces.Length > 20)
-                throw new ArgumentException("Dice must have between 4 and 20 faces.");
-            if (Faces.Any(face => face <= 0))
-                throw new ArgumentException("Dice faces must be positive integers.");
+            {
+                throw new ArgumentException($"Invalid number of faces: {Faces.Length}. Dice must have between 4 and 20 faces.");
+            }
         }
 
         public int Roll(FairRandomGenerator fairRandom)
@@ -152,7 +219,6 @@ namespace NonTransitiveDiceGame
     {
         private List<Dice> DiceList;
         private FairRandomGenerator FairRandom;
-
         public Game(List<Dice> diceList)
         {
             DiceList = diceList;

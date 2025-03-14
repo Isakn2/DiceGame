@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/isaacsilvagutierrez/Documents/DataAnalysis/Itransition/task3/GameProject/GameProject.csproj": {}
+    "/Users/isaacsilvagutierrez/Documents/DataAnalysis/Itransition/task3/GameProject/DiceGame/GameProject.csproj": {}
   },
   "projects": {
-    "/Users/isaacsilvagutierrez/Documents/DataAnalysis/Itransition/task3/GameProject/GameProject.csproj": {
+    "/Users/isaacsilvagutierrez/Documents/DataAnalysis/Itransition/task3/GameProject/DiceGame/GameProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/isaacsilvagutierrez/Documents/DataAnalysis/Itransition/task3/GameProject/GameProject.csproj",
+        "projectUniqueName": "/Users/isaacsilvagutierrez/Documents/DataAnalysis/Itransition/task3/GameProject/DiceGame/GameProject.csproj",
         "projectName": "GameProject",
-        "projectPath": "/Users/isaacsilvagutierrez/Documents/DataAnalysis/Itransition/task3/GameProject/GameProject.csproj",
+        "projectPath": "/Users/isaacsilvagutierrez/Documents/DataAnalysis/Itransition/task3/GameProject/DiceGame/GameProject.csproj",
         "packagesPath": "/Users/isaacsilvagutierrez/.nuget/packages/",
-        "outputPath": "/Users/isaacsilvagutierrez/Documents/DataAnalysis/Itransition/task3/GameProject/obj/",
+        "outputPath": "/Users/isaacsilvagutierrez/Documents/DataAnalysis/Itransition/task3/GameProject/DiceGame/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/isaacsilvagutierrez/.nuget/NuGet/NuGet.Config"
@@ -21,8 +21,7 @@
         ],
         "sources": {
           "/Users/isaacsilvagutierrez/local-nuget-packages": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://pkgs.dev.azure.com/dotnet/public/_packaging/dotnet-public/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {

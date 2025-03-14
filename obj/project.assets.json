@@ -50,11 +50,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/isaacsilvagutierrez/Documents/DataAnalysis/Itransition/task3/GameProject/GameProject.csproj",
+      "projectUniqueName": "/Users/isaacsilvagutierrez/Documents/DataAnalysis/Itransition/task3/GameProject/DiceGame/GameProject.csproj",
       "projectName": "GameProject",
-      "projectPath": "/Users/isaacsilvagutierrez/Documents/DataAnalysis/Itransition/task3/GameProject/GameProject.csproj",
+      "projectPath": "/Users/isaacsilvagutierrez/Documents/DataAnalysis/Itransition/task3/GameProject/DiceGame/GameProject.csproj",
       "packagesPath": "/Users/isaacsilvagutierrez/.nuget/packages/",
-      "outputPath": "/Users/isaacsilvagutierrez/Documents/DataAnalysis/Itransition/task3/GameProject/obj/",
+      "outputPath": "/Users/isaacsilvagutierrez/Documents/DataAnalysis/Itransition/task3/GameProject/DiceGame/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/isaacsilvagutierrez/.nuget/NuGet/NuGet.Config"
@@ -64,8 +64,7 @@
       ],
       "sources": {
         "/Users/isaacsilvagutierrez/local-nuget-packages": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://pkgs.dev.azure.com/dotnet/public/_packaging/dotnet-public/nuget/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net9.0": {
@@ -113,19 +112,5 @@
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
-    },
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://pkgs.dev.azure.com/dotnet/public/_packaging/dotnet-public/nuget/v3/index.json."
-    }
-  ]
+  }
 }
