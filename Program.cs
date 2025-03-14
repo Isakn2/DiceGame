@@ -119,7 +119,7 @@ namespace NonTransitiveDiceGame
 
     class FairRandomGenerator
     {
-        public int Generate(int min, int max)
+       public int Generate(int min, int max)
         {
             byte[] key = new byte[32];
             RandomNumberGenerator.Fill(key);
@@ -136,6 +136,12 @@ namespace NonTransitiveDiceGame
             }
 
             int result = (computerValue + userValue) % (max - min + 1);
+
+            // Add detailed output
+            Console.WriteLine($"Computer generated value: {computerValue}");
+            Console.WriteLine($"Your input: {userValue}");
+            Console.WriteLine($"Result: ({computerValue} + {userValue}) % {max - min + 1} = {result}");
+
             Console.WriteLine($"Computer value: {computerValue} (Key: {Convert.ToBase64String(key)})");
             return result;
         }
